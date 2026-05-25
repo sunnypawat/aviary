@@ -13,12 +13,16 @@ export function serializeActor(
     "@context": [AS_CONTEXT, W3_SECURITY],
     type: "Person",
     id: apUrls.actor(username),
+    url: `${process.env.NEXT_PUBLIC_APP_URL}/profile/${username}`,
     preferredUsername: username,
     name: user.name ?? username,
     inbox: apUrls.inbox(username),
     outbox: apUrls.outbox(username),
     followers: apUrls.followers(username),
     following: apUrls.following(username),
+    endpoints: {
+      sharedInbox: `${process.env.NEXT_PUBLIC_APP_URL}/inbox`,
+    },
     publicKey: {
       id: apUrls.publicKey(username),
       owner: apUrls.actor(username),
@@ -43,7 +47,7 @@ export function serializeNote(
   username: string,
   photos: { url: string }[] = []
 ) {
-  const stars = "⭐".repeat(sighting.rating)
+  const stars = "★".repeat(sighting.rating) + "☆".repeat(5 - sighting.rating)
   const displayName = sighting.commonName ?? sighting.speciesName
   const location = sighting.locationName ? ` in ${sighting.locationName}` : ""
 
