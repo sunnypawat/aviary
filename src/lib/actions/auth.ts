@@ -51,7 +51,7 @@ export async function signup(_prev: unknown, formData: FormData) {
   // Silently create the ActivityPub Actor — user never sees this happen
   await createActor(user.id, username)
 
-  await signIn("credentials", { email, password, redirectTo: "/feed" })
+  await signIn("credentials", { email, password, redirectTo: "/welcome" })
 }
 
 export async function login(_prev: unknown, formData: FormData) {

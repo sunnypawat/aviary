@@ -243,6 +243,7 @@ export default async function LandingPage() {
             <Link href="/explore" className="hover:text-gray-700">Explore</Link>
             <Link href="/signup" className="hover:text-gray-700">Join</Link>
             <Link href="/login" className="hover:text-gray-700">Sign in</Link>
+            <Link href="/self-host" className="hover:text-gray-700">Self-host</Link>
             <a href="https://github.com/sunnypawat/aviary" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700">GitHub</a>
           </div>
           <span>Built on ActivityPub · Open source · MIT</span>
