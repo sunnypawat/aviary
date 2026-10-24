@@ -21,12 +21,12 @@ export default async function NotificationsPage() {
 
   return (
     <div className="max-w-lg">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">Notifications</h1>
+      <h1 className="text-2xl font-bold text-black mb-6">Notifications</h1>
 
       {items.length === 0 ? (
         <div className="text-center py-20 text-gray-400">
           <p className="text-4xl mb-3">🔔</p>
-          <p className="text-gray-600 font-medium">No notifications yet</p>
+          <p className="text-black font-medium">No notifications yet</p>
           <p className="text-sm mt-1">You'll see likes and follows from the Fediverse here.</p>
         </div>
       ) : (
@@ -34,13 +34,13 @@ export default async function NotificationsPage() {
           {items.map((n) => (
             <div
               key={n.id}
-              className={`flex items-start gap-3 rounded-xl border p-4 ${
-                n.read ? "bg-white border-gray-200" : "bg-green-50 border-green-200"
+              className={`flex items-start gap-3 border p-4 ${
+                n.read ? "border-black" : "border-black border-l-4"
               }`}
             >
               <span className="text-xl mt-0.5">{n.type === "like" ? "♥" : "👤"}</span>
               <div className="min-w-0">
-                <p className="text-sm text-gray-900">
+                <p className="text-sm text-black">
                   <strong className="font-medium">{n.fromName ?? n.fromActorUrl}</strong>{" "}
                   {n.type === "like" ? "liked one of your sightings" : "followed you"}
                 </p>

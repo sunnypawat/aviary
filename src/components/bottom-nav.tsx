@@ -71,7 +71,7 @@ export function BottomNav({
   ]
 
   return (
-    <nav className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-gray-200 safe-area-inset-bottom">
+    <nav className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-[#fafaf8] border-t-2 border-black safe-area-inset-bottom">
       <div className="flex items-center justify-around h-16 px-2 max-w-lg mx-auto">
         {tabs.slice(0, 2).map(({ href, label, Icon }) => {
           const active = path === href || path.startsWith(href + "/")
@@ -79,23 +79,23 @@ export function BottomNav({
             <Link
               key={href}
               href={href}
-              className={`flex flex-col items-center gap-0.5 px-4 py-2 rounded-xl transition-colors min-w-[56px] ${
-                active ? "text-green-700" : "text-gray-400"
+              className={`flex flex-col items-center gap-0.5 px-4 py-2 transition-colors min-w-[56px] ${
+                active ? "text-black" : "text-gray-400"
               }`}
             >
               <Icon active={active} />
-              <span className="text-[10px] font-medium">{label}</span>
+              <span className="text-[10px] font-medium uppercase tracking-widest">{label}</span>
             </Link>
           )
         })}
 
-        {/* Center FAB */}
+        {/* Center FAB — flat square in LTM style */}
         <Link
           href="/log"
-          className="flex items-center justify-center w-14 h-14 rounded-full bg-green-700 text-white shadow-lg shadow-green-900/20 hover:bg-green-800 active:scale-95 transition-all -mt-5"
+          className="flex items-center justify-center w-12 h-12 bg-black text-white hover:bg-[#1a3a2a] active:scale-95 transition-all -mt-4 border-2 border-black"
           aria-label="Log a sighting"
         >
-          <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={2}>
+          <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
           </svg>
         </Link>
@@ -107,13 +107,13 @@ export function BottomNav({
             <Link
               key={href}
               href={href}
-              className={`relative flex flex-col items-center gap-0.5 px-4 py-2 rounded-xl transition-colors min-w-[56px] ${
-                active ? "text-green-700" : "text-gray-400"
+              className={`relative flex flex-col items-center gap-0.5 px-4 py-2 transition-colors min-w-[56px] ${
+                active ? "text-black" : "text-gray-400"
               }`}
             >
               <Icon active={active} />
               {isAlerts && unreadCount > 0 && (
-                <span className="absolute top-1.5 right-3 bg-red-500 text-white text-[9px] font-bold rounded-full min-w-[16px] h-4 flex items-center justify-center px-1 leading-none">
+                <span className="absolute top-1.5 right-3 bg-black text-white text-[9px] font-bold min-w-[16px] h-4 flex items-center justify-center px-1 leading-none">
                   {unreadCount > 9 ? "9+" : unreadCount}
                 </span>
               )}

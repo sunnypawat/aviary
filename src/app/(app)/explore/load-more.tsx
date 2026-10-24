@@ -68,17 +68,17 @@ export function ExploreLoadMore({
         const sPhotos = (photosBySighting[s.id] ?? []).sort((a, b) => a.position - b.position)
         const likeCount = likesBySighting[s.id] ?? 0
         return (
-          <article key={s.id} className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+          <article key={s.id} className="border border-black overflow-hidden">
             <div className="px-4 pt-4 pb-3">
               <div className="flex items-center gap-2 mb-2">
                 <Link
                   href={`/profile/${s.authorUsername}`}
-                  className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-800 font-bold text-sm shrink-0"
+                  className="w-8 h-8 border-2 border-black flex items-center justify-center text-black font-bold text-sm shrink-0"
                 >
                   {(s.authorName ?? s.authorUsername ?? "?")[0].toUpperCase()}
                 </Link>
                 <div className="min-w-0">
-                  <Link href={`/profile/${s.authorUsername}`} className="text-sm font-medium text-gray-800 hover:text-green-700 leading-tight block truncate">
+                  <Link href={`/profile/${s.authorUsername}`} className="text-sm font-medium text-black hover:underline leading-tight block truncate">
                     {s.authorName ?? s.authorUsername}
                   </Link>
                   <span className="text-gray-400 text-xs">@{s.authorUsername}</span>
@@ -96,7 +96,7 @@ export function ExploreLoadMore({
                     key={p.id}
                     src={p.url}
                     alt={s.speciesName}
-                    className="w-36 h-36 shrink-0 object-cover rounded-xl snap-start"
+                    className="w-36 h-36 shrink-0 object-cover snap-start"
                   />
                 ))}
               </div>
@@ -123,7 +123,7 @@ export function ExploreLoadMore({
         <button
           onClick={loadMore}
           disabled={isPending}
-          className="w-full py-4 text-sm text-gray-500 hover:text-gray-700 border border-gray-200 rounded-2xl bg-white hover:bg-gray-50 transition-colors disabled:opacity-50 active:scale-[0.99]"
+          className="w-full py-3 text-[11px] uppercase tracking-widest text-black border border-black transition-colors disabled:opacity-50"
         >
           {isPending ? "Loading…" : "Load more"}
         </button>

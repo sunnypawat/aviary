@@ -25,7 +25,7 @@ export default async function ListsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">My Lists</h1>
+        <h1 className="text-2xl font-bold text-black">My Lists</h1>
       </div>
 
       <div className="grid gap-4 mb-8">
@@ -36,16 +36,16 @@ export default async function ListsPage() {
             <Link
               key={list.id}
               href={`/lists/${list.id}`}
-              className="bg-white rounded-xl border border-gray-200 p-5 hover:border-green-300 transition-colors block"
+              className="border border-black p-5 hover:bg-gray-50 transition-colors block"
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <h2 className="font-semibold text-gray-900">{list.name}</h2>
+                  <h2 className="font-semibold text-black">{list.name}</h2>
                   {list.description && (
                     <p className="text-sm text-gray-500 mt-0.5">{list.description}</p>
                   )}
                 </div>
-                <span className="text-sm text-gray-400 shrink-0 ml-4">
+                <span className="text-sm text-gray-500 shrink-0 ml-4">
                   {list.itemCount} {list.itemCount === 1 ? "bird" : "birds"}
                 </span>
               </div>
@@ -54,8 +54,8 @@ export default async function ListsPage() {
         )}
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
-        <h2 className="font-semibold text-gray-900 mb-4">Create a new list</h2>
+      <div className="border-2 border-black p-6">
+        <h2 className="font-semibold text-black mb-4">Create a new list</h2>
         <CreateListForm />
       </div>
     </div>

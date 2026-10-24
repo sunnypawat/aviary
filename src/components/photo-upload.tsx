@@ -46,12 +46,12 @@ export function PhotoUpload() {
               <img
                 src={src}
                 alt=""
-                className="w-20 h-20 object-cover rounded-lg border border-gray-200"
+                className="w-20 h-20 object-cover border border-black"
               />
               <button
                 type="button"
                 onClick={() => removePhoto(i)}
-                className="absolute -top-1.5 -right-1.5 bg-white border border-gray-300 rounded-full w-5 h-5 text-xs text-gray-500 hover:text-red-500 flex items-center justify-center"
+                className="absolute -top-1.5 -right-1.5 bg-white border border-black w-5 h-5 text-xs text-black hover:bg-black hover:text-white flex items-center justify-center"
               >
                 ✕
               </button>
@@ -60,8 +60,8 @@ export function PhotoUpload() {
         </div>
       )}
 
-      <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-500 hover:text-gray-700">
-        <span className="border border-dashed border-gray-300 rounded-lg px-4 py-2 hover:border-green-400 transition-colors">
+      <label className="flex items-center gap-2 cursor-pointer text-sm text-black hover:text-gray-700">
+        <span className="border border-dashed border-black px-4 py-2 hover:bg-gray-50 transition-colors">
           {isUploading ? "Uploading…" : "📷 Add photos (up to 4)"}
         </span>
         <input

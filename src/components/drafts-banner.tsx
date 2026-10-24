@@ -42,22 +42,22 @@ export function DraftsBanner() {
   if (drafts.length === 0 || dismissed) return null
 
   return (
-    <div className="bg-amber-50 border-b border-amber-200 px-4 py-3">
+    <div className="border-b-2 border-black px-4 py-3 bg-[#fafaf8]">
       <div className="mx-auto max-w-3xl flex items-center justify-between gap-3 flex-wrap">
-        <p className="text-sm text-amber-800">
+        <p className="text-sm text-black">
           📋 {drafts.length} offline {drafts.length === 1 ? "draft" : "drafts"} waiting to sync
         </p>
         <div className="flex items-center gap-2">
           <button
             onClick={syncAll}
             disabled={syncing || !navigator.onLine}
-            className="text-xs font-medium bg-amber-700 hover:bg-amber-800 text-white px-3 py-1.5 rounded-lg disabled:opacity-50 transition-colors"
+            className="text-xs font-medium border-2 border-black bg-black hover:bg-[#1a3a2a] text-white px-3 py-1.5 disabled:opacity-50 transition-colors"
           >
             {syncing ? "Syncing…" : navigator.onLine ? "Sync now" : "Offline"}
           </button>
           <button
             onClick={() => setDismissed(true)}
-            className="text-xs text-amber-600 hover:text-amber-800 px-2 py-1.5"
+            className="text-xs text-gray-500 hover:text-black px-2 py-1.5"
           >
             Later
           </button>

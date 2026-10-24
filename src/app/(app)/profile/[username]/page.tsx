@@ -89,11 +89,11 @@ export default async function ProfilePage({
 
   return (
     <div>
-      <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6">
+      <div className="border-2 border-black p-6 mb-6">
         <div className="flex items-start justify-between">
           <div>
             <div className="flex items-center gap-3 mb-1">
-              <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-800 font-bold text-lg">
+              <div className="w-12 h-12 border-2 border-black flex items-center justify-center text-black font-bold text-lg font-display">
                 {(profile.name ?? profile.username ?? "?")[0].toUpperCase()}
               </div>
               <div>
@@ -159,7 +159,7 @@ export default async function ProfilePage({
           )
           const likeCount = likesBySighting[s.id] ?? 0
           return (
-            <article key={s.id} className="bg-white rounded-xl border border-gray-200 p-5">
+            <article key={s.id} className="border border-black p-5">
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <h2 className="font-semibold text-gray-900">{s.speciesName}</h2>
@@ -178,7 +178,7 @@ export default async function ProfilePage({
                       key={p.id}
                       src={p.url}
                       alt={s.speciesName}
-                      className="w-24 h-24 object-cover rounded-lg border border-gray-100"
+                      className="w-24 h-24 object-cover border border-black"
                     />
                   ))}
                 </div>
@@ -195,7 +195,7 @@ export default async function ProfilePage({
                 </span>
                 {likeCount > 0 && <span>♥ {likeCount}</span>}
                 {s.visibility !== "public" && (
-                  <span className="bg-gray-100 rounded px-1.5 py-0.5">{s.visibility}</span>
+                  <span className="border border-black px-1.5 py-0.5 text-[10px] uppercase tracking-widest">{s.visibility}</span>
                 )}
               </div>
             </article>

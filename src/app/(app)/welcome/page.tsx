@@ -37,7 +37,7 @@ export default function WelcomePage() {
     <div className="max-w-lg mx-auto py-10 px-4">
       <div className="text-center mb-10">
         <p className="text-5xl mb-4">🐦</p>
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Welcome to Aviary</h1>
+        <h1 className="text-2xl font-bold text-black mb-2">Welcome to Aviary</h1>
         <p className="text-gray-500 text-sm">What brings you here? This helps us understand how people use the app.</p>
       </div>
 
@@ -46,15 +46,15 @@ export default function WelcomePage() {
           <button
             key={m.value}
             onClick={() => choose(m.value)}
-            className="w-full text-left bg-white border border-gray-200 hover:border-green-400 hover:bg-green-50 rounded-2xl p-5 transition-all group"
+            className="w-full text-left border-2 border-black hover:bg-gray-50 p-5 transition-colors group"
           >
             <div className="flex items-start gap-4">
               <span className="text-3xl shrink-0">{m.icon}</span>
               <div>
-                <p className="font-semibold text-gray-900 group-hover:text-green-800">{m.title}</p>
+                <p className="font-semibold text-black">{m.title}</p>
                 <p className="text-sm text-gray-500 mt-0.5">{m.desc}</p>
               </div>
-              <span className="ml-auto text-gray-300 group-hover:text-green-500 text-xl shrink-0">→</span>
+              <span className="ml-auto text-gray-400 text-xl shrink-0">→</span>
             </div>
           </button>
         ))}

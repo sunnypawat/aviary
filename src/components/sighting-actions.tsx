@@ -53,13 +53,13 @@ export function SightingActions({
       </button>
 
       {message && (
-        <span className="absolute right-0 -top-6 text-xs text-green-700 bg-green-50 px-2 py-0.5 rounded whitespace-nowrap">
+        <span className="absolute right-0 -top-6 text-xs text-black border border-black bg-[#fafaf8] px-2 py-0.5 whitespace-nowrap">
           {message}
         </span>
       )}
 
       {open && (
-        <div className="absolute right-0 top-7 z-10 bg-white border border-gray-200 rounded-lg shadow-lg w-44 py-1 text-sm">
+        <div className="absolute right-0 top-7 z-10 bg-[#fafaf8] border border-black w-44 py-1 text-sm">
           {!showLists ? (
             <>
               <button

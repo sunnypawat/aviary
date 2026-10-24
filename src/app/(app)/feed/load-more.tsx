@@ -78,7 +78,7 @@ export function FeedLoadMore({
         const likeCount = likesBySighting[s.id] ?? 0
         const liked = likedByMe.has(s.id)
         return (
-          <article key={s.id} className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+          <article key={s.id} className="border border-black overflow-hidden">
             <div className="px-4 pt-4 pb-3">
               <div className="flex items-start justify-between gap-2">
                 <div>
@@ -99,7 +99,7 @@ export function FeedLoadMore({
                     key={p.id}
                     src={p.url}
                     alt={s.speciesName}
-                    className="w-36 h-36 shrink-0 object-cover rounded-xl snap-start"
+                    className="w-36 h-36 shrink-0 object-cover snap-start"
                   />
                 ))}
               </div>
@@ -120,7 +120,7 @@ export function FeedLoadMore({
                 })}
               </span>
               {s.visibility !== "public" && (
-                <span className="bg-gray-100 text-gray-500 rounded-full px-2 py-0.5">{s.visibility}</span>
+                <span className="border border-black text-gray-500 px-2 py-0.5 text-[10px] uppercase tracking-widest">{s.visibility}</span>
               )}
               <LikeButton sightingId={s.id} liked={liked} count={likeCount} />
             </div>
@@ -132,7 +132,7 @@ export function FeedLoadMore({
         <button
           onClick={loadMore}
           disabled={isPending}
-          className="w-full py-4 text-sm text-gray-500 hover:text-gray-700 border border-gray-200 rounded-2xl bg-white hover:bg-gray-50 transition-colors disabled:opacity-50 active:scale-[0.99]"
+          className="w-full py-3 text-sm text-black hover:bg-gray-50 border border-black transition-colors disabled:opacity-50 uppercase tracking-widest text-[11px]"
         >
           {isPending ? "Loading…" : "Load more"}
         </button>

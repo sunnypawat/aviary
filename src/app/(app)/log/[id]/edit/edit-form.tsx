@@ -18,7 +18,7 @@ export function EditSightingForm({ sighting }: { sighting: Sighting }) {
   }, [state?.success, router])
 
   return (
-    <form action={action} className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
+    <form action={action} className="border-2 border-black p-6 space-y-5">
       <input type="hidden" name="sightingId" value={sighting.id} />
 
       <SpeciesAutocomplete
@@ -27,26 +27,26 @@ export function EditSightingForm({ sighting }: { sighting: Sighting }) {
       />
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-black mb-2">
           Rating <span className="text-red-500">*</span>
         </label>
         <StarRating name="rating" defaultValue={sighting.rating} />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-black mb-1">
           Date sighted
         </label>
         <input
           name="sightedAt"
           type="date"
           defaultValue={new Date(sighting.sightedAt).toISOString().split("T")[0]}
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full border border-black px-3 py-2 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a]"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-black mb-1">
           Location name
         </label>
         <input
@@ -54,29 +54,29 @@ export function EditSightingForm({ sighting }: { sighting: Sighting }) {
           type="text"
           defaultValue={sighting.locationName ?? ""}
           placeholder="e.g. Central Park, NYC"
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full border border-black px-3 py-2 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a]"
         />
       </div>
 
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Latitude</label>
+          <label className="block text-sm font-medium text-black mb-1">Latitude</label>
           <input
             name="lat"
             type="number"
             step="any"
             defaultValue={sighting.latExact ?? ""}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-black px-3 py-2 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a]"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Longitude</label>
+          <label className="block text-sm font-medium text-black mb-1">Longitude</label>
           <input
             name="lng"
             type="number"
             step="any"
             defaultValue={sighting.lngExact ?? ""}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-black px-3 py-2 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a]"
           />
         </div>
       </div>
@@ -85,22 +85,22 @@ export function EditSightingForm({ sighting }: { sighting: Sighting }) {
       </p>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Field notes</label>
+        <label className="block text-sm font-medium text-black mb-1">Field notes</label>
         <textarea
           name="notes"
           rows={4}
           defaultValue={sighting.notes ?? ""}
           placeholder="Describe the encounter, behavior, plumage…"
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
+          className="w-full border border-black px-3 py-2 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a] resize-none"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Visibility</label>
+        <label className="block text-sm font-medium text-black mb-1">Visibility</label>
         <select
           name="visibility"
           defaultValue={sighting.visibility}
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full border border-black px-3 py-2 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a]"
         >
           <option value="public">Public</option>
           <option value="friends">Friends only</option>
@@ -114,14 +114,14 @@ export function EditSightingForm({ sighting }: { sighting: Sighting }) {
         <button
           type="button"
           onClick={() => router.back()}
-          className="flex-1 border border-gray-300 text-gray-700 font-medium rounded-lg py-2 text-sm hover:bg-gray-50 transition-colors"
+          className="flex-1 border-2 border-black text-black font-medium py-2 text-sm hover:bg-gray-50 transition-colors"
         >
           Cancel
         </button>
         <button
           type="submit"
           disabled={pending}
-          className="flex-1 bg-green-700 hover:bg-green-800 text-white font-medium rounded-lg py-2 text-sm transition-colors disabled:opacity-60"
+          className="flex-1 border-2 border-black bg-black hover:bg-[#1a3a2a] hover:border-[#1a3a2a] text-white font-medium py-2 text-sm transition-colors disabled:opacity-60"
         >
           {pending ? "Saving…" : "Save Changes"}
         </button>

@@ -50,12 +50,12 @@ export function GpsButton({
       type="button"
       onClick={locate}
       disabled={state === "loading"}
-      className={`flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-lg border transition-colors disabled:opacity-50 ${
+      className={`flex items-center gap-1.5 text-xs px-2.5 py-1.5 border transition-colors disabled:opacity-50 ${
         state === "done"
-          ? "bg-green-50 border-green-200 text-green-700"
+          ? "border-black text-black bg-gray-50"
           : state === "error"
-          ? "bg-red-50 border-red-200 text-red-600"
-          : "bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100"
+          ? "border-black text-red-600"
+          : "border-black text-black hover:bg-gray-50"
       }`}
     >
       {state === "loading" ? "Locating…" : state === "done" ? "📍 Got location" : state === "error" ? "Location denied" : "📍 Use my location"}

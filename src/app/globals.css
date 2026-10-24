@@ -2,24 +2,122 @@
 
 :root {
   --background: #fafaf8;
-  --foreground: #1a1a1a;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --card: #ffffff;
-  --primary: #2d6a4f;
-  --primary-hover: #1b4332;
-  --ring: #52b788;
+  --foreground: #111111;
+  --muted: #555555;
+  --border: #111111;
+  --card: #fafaf8;
+  --primary: #1a3a2a;
+  --primary-hover: #0d1f16;
+  --ring: #1a3a2a;
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: system-ui, -apple-system, sans-serif;
-  /* Prevent horizontal scroll caused by edge-bleed elements */
+  font-family: var(--font-body);
   overflow-x: hidden;
 }
 
-/* Hide scrollbar on photo strips while preserving scroll */
+/* Playfair Display for all headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Utility class for Playfair Display on non-heading elements */
+.font-display {
+  font-family: var(--font-heading);
+}
+
+/* ── Low-tech Magazine flat aesthetic ──────────────────────────────────────
+   Remove rounded corners, shadows, and blur effects site-wide.
+   ───────────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Dark (ink-like) borders — override Tailwind's light grays */
+[class*="border-gray-"],
+[class*="border-zinc-"],
+[class*="border-neutral-"],
+[class*="border-green-"],
+[class*="border-red-"],
+[class*="border-blue-"] {
+  border-color: #111111 !important;
+}
+
+/* Flatten white card/panel backgrounds into the page background */
+.bg-white {
+  background-color: var(--background) !important;
+}
+
+/* Keep form controls white so they're visually identifiable */
+input, textarea, select {
+  background-color: #ffffff;
+  border-color: #111111 !important;
+}
+
+/* Flatten light tinted backgrounds */
+.bg-gray-50,
+.bg-gray-100,
+.bg-green-50,
+.bg-green-100,
+.bg-blue-100,
+[class*="bg-white\/"] {
+  background-color: var(--background) !important;
+}
+
+/* Replace green button/badge/toggle colors with dark ink */
+[class*="bg-green-6"],
+[class*="bg-green-7"],
+[class*="bg-green-8"],
+[class*="bg-green-9"] {
+  background-color: #1a3a2a !important;
+}
+[class*="hover\:bg-green-6"]:hover,
+[class*="hover\:bg-green-7"]:hover,
+[class*="hover\:bg-green-8"]:hover {
+  background-color: #0d1f16 !important;
+}
+
+/* Green text stays readable as dark forest green */
+[class*="text-green-5"],
+[class*="text-green-6"],
+[class*="text-green-7"],
+[class*="text-green-8"] {
+  color: #1a3a2a !important;
+}
+
+/* Dark charcoal gray — keep readable text dark */
+[class*="text-gray-9"] {
+  color: #111111 !important;
+}
+
+/* Hover border states */
+[class*="hover\:border-green-"]:hover {
+  border-color: #111111 !important;
+}
+
+/* Focus: clean outline instead of ring */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+/* Form controls: always dark border, remove ring */
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--primary) !important;
+  outline-offset: 0;
+}
+[class*="focus\:ring-"] {
+  --tw-ring-color: transparent !important;
+}
+
+/* Scrollbar utilities */
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -28,7 +126,7 @@ body {
   display: none;
 }
 
-/* Safe area padding for bottom nav on notched phones */
+/* Safe area for notched phones */
 .safe-area-inset-bottom {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }

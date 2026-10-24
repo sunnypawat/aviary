@@ -10,11 +10,11 @@ export default function SignupPage() {
   const [state, action, pending] = useActionState(signup, initialState)
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-      <h2 className="text-xl font-semibold text-gray-900 mb-6">Create account</h2>
+    <div className="border-2 border-black p-8 bg-[#fafaf8]">
+      <h2 className="text-xl font-bold text-black mb-6">Create account</h2>
       <form action={action} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-black mb-1">
             Full name
           </label>
           <input
@@ -22,30 +22,30 @@ export default function SignupPage() {
             type="text"
             required
             autoComplete="name"
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full border border-black px-3 py-2 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a]"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-black mb-1">
             Username
           </label>
           <div className="flex items-center">
-            <span className="text-gray-400 text-sm mr-1">@</span>
+            <span className="text-gray-500 text-sm mr-1">@</span>
             <input
               name="username"
               type="text"
               required
               pattern="[a-zA-Z0-9_]{3,}"
               title="Letters, numbers, and underscores only (min 3)"
-              className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="flex-1 border border-black px-3 py-2 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a]"
             />
           </div>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-gray-500 mt-1">
             This becomes your Fediverse handle: @you@aviary.app
           </p>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-black mb-1">
             Email
           </label>
           <input
@@ -53,11 +53,11 @@ export default function SignupPage() {
             type="email"
             required
             autoComplete="email"
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full border border-black px-3 py-2 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a]"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-black mb-1">
             Password
           </label>
           <input
@@ -66,7 +66,7 @@ export default function SignupPage() {
             required
             minLength={8}
             autoComplete="new-password"
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full border border-black px-3 py-2 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a]"
           />
         </div>
         {state?.error && (
@@ -75,14 +75,14 @@ export default function SignupPage() {
         <button
           type="submit"
           disabled={pending}
-          className="w-full bg-green-700 hover:bg-green-800 text-white font-medium rounded-lg py-2 text-sm transition-colors disabled:opacity-60"
+          className="w-full border-2 border-black bg-black hover:bg-[#1a3a2a] hover:border-[#1a3a2a] text-white font-medium py-2 text-sm transition-colors disabled:opacity-60"
         >
           {pending ? "Creating account…" : "Create account"}
         </button>
       </form>
       <p className="text-center text-sm text-gray-500 mt-6">
         Already have an account?{" "}
-        <Link href="/login" className="text-green-700 font-medium hover:underline">
+        <Link href="/login" className="text-[#1a3a2a] font-medium hover:underline">
           Sign in
         </Link>
       </p>

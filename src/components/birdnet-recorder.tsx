@@ -54,10 +54,10 @@ function WaveformCanvas({ analyser }: { analyser: AnalyserNode | null }) {
     function draw() {
       rafRef.current = requestAnimationFrame(draw)
       a.getByteTimeDomainData(dataArray)
-      ctx.fillStyle = "#f0fdf4"
+      ctx.fillStyle = "#fafaf8"
       ctx.fillRect(0, 0, c.width, c.height)
       ctx.lineWidth = 2
-      ctx.strokeStyle = "#16a34a"
+      ctx.strokeStyle = "#111111"
       ctx.beginPath()
       const sliceWidth = c.width / bufferLength
       let x = 0
@@ -79,7 +79,7 @@ function WaveformCanvas({ analyser }: { analyser: AnalyserNode | null }) {
       ref={canvasRef}
       width={400}
       height={60}
-      className="w-full h-16 rounded-lg border border-green-200"
+      className="w-full h-16 border border-black"
     />
   )
 }
@@ -186,9 +186,9 @@ export function BirdNetRecorder({ onSelect }: { onSelect: (sciName: string, comN
   const formatTime = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`
 
   return (
-    <div className="rounded-xl border border-gray-200 p-4 space-y-3 bg-gray-50">
+    <div className="border border-black p-4 space-y-3">
       <div className="flex items-center justify-between">
-        <p className="text-sm font-medium text-gray-700">🎙 Identify by sound</p>
+        <p className="text-sm font-medium text-black">🎙 Identify by sound</p>
         {state === "recording" && (
           <span className="text-xs font-mono text-red-500 tabular-nums">{formatTime(elapsed)}</span>
         )}
@@ -199,14 +199,14 @@ export function BirdNetRecorder({ onSelect }: { onSelect: (sciName: string, comN
           <button
             type="button"
             onClick={startRecording}
-            className="flex items-center gap-2 text-sm bg-green-600 hover:bg-green-700 text-white rounded-lg px-4 py-2 transition-colors font-medium"
+            className="flex items-center gap-2 text-sm border-2 border-black bg-black hover:bg-[#1a3a2a] hover:border-[#1a3a2a] text-white px-4 py-2 transition-colors font-medium"
           >
             ● Record
           </button>
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="flex items-center gap-2 text-sm bg-white hover:bg-gray-100 text-gray-700 border border-gray-300 rounded-lg px-4 py-2 transition-colors"
+            className="flex items-center gap-2 text-sm border border-black text-black hover:bg-gray-50 px-4 py-2 transition-colors"
           >
             ↑ Upload audio
           </button>
@@ -220,7 +220,7 @@ export function BirdNetRecorder({ onSelect }: { onSelect: (sciName: string, comN
           <button
             type="button"
             onClick={stopRecording}
-            className="flex items-center gap-2 text-sm bg-red-600 hover:bg-red-700 text-white rounded-lg px-4 py-2 transition-colors font-medium"
+            className="flex items-center gap-2 text-sm border-2 border-black bg-black hover:bg-red-700 hover:border-red-700 text-white px-4 py-2 transition-colors font-medium"
           >
             ■ Stop & Analyze
           </button>
@@ -229,7 +229,7 @@ export function BirdNetRecorder({ onSelect }: { onSelect: (sciName: string, comN
 
       {state === "analyzing" && (
         <div className="flex items-center gap-3 py-2">
-          <div className="w-4 h-4 border-2 border-green-600 border-t-transparent rounded-full animate-spin" />
+          <div className="w-4 h-4 border-2 border-black border-t-transparent animate-spin" />
           <p className="text-sm text-gray-600">Analyzing with BirdNET…</p>
         </div>
       )}
@@ -254,19 +254,19 @@ export function BirdNetRecorder({ onSelect }: { onSelect: (sciName: string, comN
                     key={s.sciName}
                     type="button"
                     onClick={() => { onSelect(s.sciName, s.comName); reset() }}
-                    className="w-full text-left rounded-lg border border-gray-200 bg-white hover:border-green-300 hover:bg-green-50 transition-colors overflow-hidden group"
+                    className="w-full text-left border border-black hover:bg-gray-50 transition-colors overflow-hidden"
                   >
                     <div className="px-3 py-2">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-medium text-gray-900 group-hover:text-green-800">
+                        <span className="text-sm font-medium text-black">
                           {i + 1}. {s.comName}
                         </span>
-                        <span className="text-xs font-semibold text-green-700">{s.confidence}%</span>
+                        <span className="text-xs font-semibold text-black">{s.confidence}%</span>
                       </div>
-                      <p className="text-xs text-gray-400 italic mb-1.5">{s.sciName}</p>
-                      <div className="w-full bg-gray-100 rounded-full h-1.5">
+                      <p className="text-xs text-gray-500 italic mb-1.5">{s.sciName}</p>
+                      <div className="w-full bg-gray-200 h-1">
                         <div
-                          className="bg-green-500 h-1.5 rounded-full transition-all"
+                          className="bg-black h-1 transition-all"
                           style={{ width: `${s.confidence}%` }}
                         />
                       </div>

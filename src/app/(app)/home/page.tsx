@@ -60,12 +60,12 @@ export default async function HomePage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">Home</h1>
+      <h1 className="text-2xl font-bold text-black mb-6">Home</h1>
       {followingIds.length === 0 ? (
         <div className="text-center py-20 text-gray-400">
           <p className="text-5xl mb-4">🌿</p>
-          <p className="text-lg font-medium text-gray-600">Your feed is empty</p>
-          <p className="text-sm mt-1">Find birders to follow via <Link href="/search" className="text-green-700 hover:underline">search</Link>.</p>
+          <p className="text-lg font-medium text-black">Your feed is empty</p>
+          <p className="text-sm mt-1">Find birders to follow via <Link href="/search" className="text-black hover:underline border-b border-black">search</Link>.</p>
         </div>
       ) : feed.length === 0 ? (
         <div className="text-center py-20 text-gray-400">

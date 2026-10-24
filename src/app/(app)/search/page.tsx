@@ -84,7 +84,7 @@ export default async function SearchPage({
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">Search</h1>
+      <h1 className="text-2xl font-bold text-black mb-6">Search</h1>
 
       <form className="mb-2">
         <input
@@ -93,7 +93,7 @@ export default async function SearchPage({
           defaultValue={query}
           placeholder="Search users, species, or @user@mastodon.social…"
           autoFocus
-          className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full border border-black px-4 py-3 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a]"
         />
       </form>
       <p className="text-xs text-gray-400 mb-6">
@@ -105,23 +105,23 @@ export default async function SearchPage({
           {/* Remote actor result */}
           {remoteActor && (
             <section>
-              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+              <h2 className="text-[11px] font-semibold text-black uppercase tracking-widest mb-3">
                 External Account
               </h2>
               <a
                 href={remoteActor.profileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-white rounded-xl border border-gray-200 px-4 py-3 hover:border-green-300 transition-colors"
+                className="flex items-center gap-3 border border-black px-4 py-3 hover:bg-gray-50 transition-colors"
               >
-                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-medium text-sm shrink-0">
+                <div className="w-8 h-8 border-2 border-black flex items-center justify-center text-black font-medium text-sm shrink-0">
                   {remoteActor.name[0]?.toUpperCase() ?? "?"}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900">{remoteActor.name}</p>
-                  <p className="text-xs text-gray-400">{remoteActor.handle}</p>
+                  <p className="text-sm font-medium text-black">{remoteActor.name}</p>
+                  <p className="text-xs text-gray-500">{remoteActor.handle}</p>
                 </div>
-                <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded shrink-0">
+                <span className="text-xs text-gray-500 border border-black px-2 py-0.5 shrink-0">
                   on {remoteActor.domain} ↗
                 </span>
               </a>
@@ -140,7 +140,7 @@ export default async function SearchPage({
           {/* Local users */}
           {(matchedUsers as { id: string; username: string | null; name: string | null }[]).length > 0 && (
             <section>
-              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+              <h2 className="text-[11px] font-semibold text-black uppercase tracking-widest mb-3">
                 Birders on Aviary
               </h2>
               <div className="space-y-2">
@@ -148,14 +148,14 @@ export default async function SearchPage({
                   <Link
                     key={u.id}
                     href={`/profile/${u.username}`}
-                    className="flex items-center gap-3 bg-white rounded-xl border border-gray-200 px-4 py-3 hover:border-green-300 transition-colors"
+                    className="flex items-center gap-3 border border-black px-4 py-3 hover:bg-gray-50 transition-colors"
                   >
-                    <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-medium text-sm">
+                    <div className="w-8 h-8 border-2 border-black flex items-center justify-center text-black font-medium text-sm">
                       {(u.name ?? u.username ?? "?")[0].toUpperCase()}
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-900">{u.name ?? u.username}</p>
-                      <p className="text-xs text-gray-400">@{u.username}</p>
+                      <p className="text-sm font-medium text-black">{u.name ?? u.username}</p>
+                      <p className="text-xs text-gray-500">@{u.username}</p>
                     </div>
                   </Link>
                 ))}
@@ -166,16 +166,16 @@ export default async function SearchPage({
           {/* Species */}
           {(matchedSightings as { speciesName: string; commonName: string | null }[]).length > 0 && (
             <section>
-              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+              <h2 className="text-[11px] font-semibold text-black uppercase tracking-widest mb-3">
                 Species
               </h2>
               <div className="space-y-2">
                 {(matchedSightings as { speciesName: string; commonName: string | null }[]).map((s) => (
                   <div
                     key={s.speciesName}
-                    className="bg-white rounded-xl border border-gray-200 px-4 py-3"
+                    className="border border-black px-4 py-3"
                   >
-                    <p className="text-sm font-medium text-gray-900">{s.speciesName}</p>
+                    <p className="text-sm font-medium text-black">{s.speciesName}</p>
                     {s.commonName && <p className="text-xs text-gray-500">{s.commonName}</p>}
                   </div>
                 ))}

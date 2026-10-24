@@ -63,7 +63,7 @@ export function SightingsMap({ points }: { points: Point[] }) {
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       />
-      <div ref={containerRef} className="w-full h-72 rounded-xl border border-gray-200 z-0" />
+      <div ref={containerRef} className="w-full h-72 border border-black z-0" />
     </>
   )
 }

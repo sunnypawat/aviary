@@ -38,7 +38,7 @@ export default async function ListDetailPage({
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">{list.name}</h1>
+        <h1 className="text-2xl font-bold text-black">{list.name}</h1>
         {list.description && (
           <p className="text-gray-500 text-sm mt-1">{list.description}</p>
         )}
@@ -51,7 +51,7 @@ export default async function ListDetailPage({
           <p className="text-sm">This list is empty.</p>
           <p className="text-xs mt-1">
             Use the ··· menu on any sighting in your{" "}
-            <a href="/feed" className="text-green-700 hover:underline">feed</a>{" "}
+            <a href="/feed" className="text-black hover:underline">feed</a>{" "}
             to add it here.
           </p>
         </div>
@@ -60,15 +60,15 @@ export default async function ListDetailPage({
           {items.map((item, idx) => (
             <div
               key={item.id}
-              className="bg-white rounded-xl border border-gray-200 p-5 flex gap-4"
+              className="border border-black p-5 flex gap-4"
             >
-              <span className="text-gray-300 font-mono text-sm w-6 shrink-0 pt-0.5">
+              <span className="text-gray-400 font-mono text-sm w-6 shrink-0 pt-0.5">
                 {idx + 1}
               </span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <h2 className="font-semibold text-gray-900 text-sm">
+                    <h2 className="font-semibold text-black text-sm">
                       {item.speciesName}
                     </h2>
                     {item.commonName && (

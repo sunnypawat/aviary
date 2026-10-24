@@ -70,7 +70,7 @@ export function SpeciesAutocomplete({
       <input type="hidden" name="commonName" value={comName} />
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-black mb-1">
           Bird species <span className="text-red-500">*</span>
         </label>
         <div className="relative">
@@ -81,19 +81,19 @@ export function SpeciesAutocomplete({
             onChange={(e) => handleInput(e.target.value)}
             onFocus={() => suggestions.length > 0 && setOpen(true)}
             placeholder="Start typing a common or scientific name…"
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-black px-3 py-2 text-sm bg-white focus:outline-none focus:outline-2 focus:outline-[#1a3a2a]"
           />
           {open && (
-            <ul className="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
+            <ul className="absolute z-10 mt-1 w-full bg-[#fafaf8] border border-black overflow-hidden">
               {suggestions.map((s) => (
                 <li key={s.sciName}>
                   <button
                     type="button"
                     onMouseDown={() => select(s)}
-                    className="w-full text-left px-3 py-2 hover:bg-green-50 transition-colors"
+                    className="w-full text-left px-3 py-2 hover:bg-gray-100 transition-colors"
                   >
-                    <span className="text-sm font-medium text-gray-900">{s.comName}</span>
-                    <span className="ml-2 text-xs text-gray-400 italic">{s.sciName}</span>
+                    <span className="text-sm font-medium text-black">{s.comName}</span>
+                    <span className="ml-2 text-xs text-gray-500 italic">{s.sciName}</span>
                   </button>
                 </li>
               ))}

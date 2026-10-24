@@ -44,7 +44,7 @@ export default async function LifelistPage({
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Lifelist</h1>
+          <h1 className="text-2xl font-bold text-black">Lifelist</h1>
           <p className="text-sm text-gray-500 mt-1">
             {total} {total === 1 ? "species" : "species"} observed
           </p>
@@ -53,7 +53,7 @@ export default async function LifelistPage({
           <a
             href="/api/export/lifelist"
             download
-            className="text-sm border border-gray-300 text-gray-600 hover:bg-gray-50 px-3 py-1.5 rounded-lg transition-colors"
+            className="text-sm border-2 border-black text-black hover:bg-black hover:text-white px-3 py-1.5 transition-colors"
           >
             ↓ Export CSV
           </a>
@@ -68,14 +68,14 @@ export default async function LifelistPage({
         </div>
       ) : (
         <>
-          <div className="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100">
+          <div className="border border-black divide-y divide-black">
             {lifelist.map((bird, idx) => (
               <div key={bird.speciesName} className="flex items-center gap-3 px-4 py-3.5">
-                <span className="text-gray-300 font-mono text-sm w-7 shrink-0 text-right">
+                <span className="text-gray-400 font-mono text-sm w-7 shrink-0 text-right">
                   {offset + idx + 1}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-gray-900 text-sm truncate">{bird.speciesName}</p>
+                  <p className="font-medium text-black text-sm truncate">{bird.speciesName}</p>
                   {bird.commonName && (
                     <p className="text-xs text-gray-500 truncate">{bird.commonName}</p>
                   )}
@@ -98,13 +98,13 @@ export default async function LifelistPage({
           {totalPages > 1 && (
             <div className="flex items-center justify-center gap-2 mt-6 text-sm">
               {page > 1 && (
-                <Link href={`/lifelist?page=${page - 1}`} className="px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <Link href={`/lifelist?page=${page - 1}`} className="px-3 py-1.5 border border-black hover:bg-black hover:text-white transition-colors">
                   ← Prev
                 </Link>
               )}
-              <span className="text-gray-400">Page {page} of {totalPages}</span>
+              <span className="text-gray-500">Page {page} of {totalPages}</span>
               {page < totalPages && (
-                <Link href={`/lifelist?page=${page + 1}`} className="px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <Link href={`/lifelist?page=${page + 1}`} className="px-3 py-1.5 border border-black hover:bg-black hover:text-white transition-colors">
                   Next →
                 </Link>
               )}

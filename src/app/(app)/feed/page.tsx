@@ -72,10 +72,10 @@ export default async function FeedPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">My Sightings</h1>
+        <h1 className="text-2xl font-bold text-black">My Sightings</h1>
         <Link
           href="/log"
-          className="bg-green-700 hover:bg-green-800 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+          className="border-2 border-black bg-black hover:bg-[#1a3a2a] hover:border-[#1a3a2a] text-white text-sm font-medium px-4 py-2 transition-colors"
         >
           + Log Sighting
         </Link>
@@ -87,7 +87,7 @@ export default async function FeedPage() {
           <p className="text-lg font-medium text-gray-600">No sightings yet</p>
           <p className="text-sm mt-1">
             Head outside and{" "}
-            <Link href="/log" className="text-green-700 hover:underline">
+            <Link href="/log" className="text-black hover:underline border-b border-black">
               log your first bird
             </Link>
             .

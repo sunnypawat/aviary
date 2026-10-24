@@ -49,7 +49,7 @@ export default async function ExplorePage() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Explore</h1>
+        <h1 className="text-2xl font-bold text-black">Explore</h1>
         <p className="text-sm text-gray-500 mt-1">Recent public sightings from everyone</p>
       </div>
 
@@ -57,7 +57,7 @@ export default async function ExplorePage() {
         <div className="text-center py-20 text-gray-400">
           <p className="text-5xl mb-4">🌍</p>
           <p className="text-lg font-medium text-gray-600">No public sightings yet</p>
-          <p className="text-sm mt-1"><Link href="/log" className="text-green-700 hover:underline">Log one</Link> to get things started.</p>
+          <p className="text-sm mt-1"><Link href="/log" className="text-black hover:underline border-b border-black">Log one</Link> to get things started.</p>
         </div>
       ) : (
         <ExploreLoadMore
